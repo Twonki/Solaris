@@ -1,0 +1,21 @@
+version: 2
+registries:
+  maven-repository-maven-pkg-github-com-twonki:
+    type: maven-repository
+    url: https://maven.pkg.github.com/twonki/*
+    username: PublicToken
+    password: "${{secrets.MAVEN_REPOSITORY_MAVEN_PKG_GITHUB_COM_TWONKI_PASSWORD}}"
+
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "04:00"
+  open-pull-requests-limit: 10
+  reviewers:
+  - Twonki
+  assignees:
+  - Twonki
+  registries:
+  - maven-repository-maven-pkg-github-com-twonki
